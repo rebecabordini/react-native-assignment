@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import Amount from 'Amount';
 import PaymentMethodIcon from 'PaymentMethodIcon';
 import { Payment } from 'types';
@@ -7,7 +7,7 @@ import { View, Text } from 'react-native';
 const Payments: React.FC = () => {
     const [payments, setPayments] = useState<Payment[]>([]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         (async () => {
             const response = await fetch('https://api.mollie.com/payments');
             setPayments(await response.json());
